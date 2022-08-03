@@ -1,77 +1,70 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forge - Sign Up</title>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+    <link rel="stylesheet" href="{{ asset('signup-signin/style.css') }}">
+</head>
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+<body>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <div class="main">
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+        <div class="logo">
+            <a href="{{ url('/') }}"><img src="{{ asset('/signup-signin/Group 271.png') }}" alt=""></a>
+            <p>We guarantee you the best template, to give your project the best impression</p>
+            <img class="img1" src="{{ asset('signup-signin/Image 2.png') }}" alt="picture"><br>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            {{-- <button class="btn1"><a href="">Sign in with Google</a></button>
+            <button class="btn2"><a href="">Sign in with Facebook</a></button> --}}
         </div>
+
+
+
+        <form method="post" action="#" autocomplete="off" class="section">
+            @csrf
+            <h1>Sign Up</h1>
+
+            <div class="form">
+                
+                @include('includes.errors')
+
+                <label for="name"><b>Name</b></label>
+                <input type="text" name="name" id="name" value="{{old('name')}}" required><br>
+
+                <label for="email"><b>Email</b></label>
+                <input type="email" name="email" id="email" value="{{old('email')}}" required><br>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" name="password" id="password" required><br/>
+
+                <label for="password_confirmation"><b>Confirm password</b></label>
+                <input type="password" name="password_confirmation" id="password_confirmation" required>
+
+                <button class="btn3" style="color: white">Sign Up</button>
+            </div>
+
+            <div class="account">
+                <p> Already have an account? </p>
+                <p><a href="{{route('login')}}"> Log In </a></p>
+            </div>
+
+            <div class="para">
+                <p>By signing in, you agree to our Terms of Use
+                    and to receive Forge emails & updates and acknowledge
+                    that you read our Privacy Policy</p>
+            </div>
+
+
+        </form>
+
+
     </div>
-</div>
-@endsection
+
+</body>
+
+</html>

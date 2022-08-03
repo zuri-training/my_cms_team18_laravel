@@ -43,7 +43,7 @@
                     <ul class="navbar-nav ms-auto">
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('public.template.index')}}">Templates</a>
+                            <a class="nav-link" href="{{route('public.template.index')}}">Browse Templates</a>
                         </li>
 
                         <!-- Authentication Links -->

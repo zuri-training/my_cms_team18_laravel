@@ -16,7 +16,7 @@ class UserTemplateController extends Controller
      */
     public function index()
     {
-        return UserTemplate::where('user', Auth::id())->latest()->get();
+        return view('user.all-template')->with('templates',  UserTemplate::where('user', Auth::id())->latest()->get());
     }
 
 
@@ -35,13 +35,12 @@ class UserTemplateController extends Controller
         ]);
 
         $user_template = UserTemplate::create([
-            'name' => OriginalTemplate::findOrFail($validatedData['template'])->first()->name,
-            'content' => $validatedData['css'].'<br/>'.$validatedData['html'],
+            'name' => OriginalTemplate::findOrFail($validatedData['template'])->name,
+            'content' => '<style>'.$validatedData['css'].'</style><br/>'.$validatedData['html'],
             'original_template' => $validatedData['template'],
             'user' => Auth::id(),
         ]);
 
-        // change this to redirect to user template edit route (logged in)
         return redirect()->back()->withStatus('Templated has been saved to your dashboard');
     }
 
@@ -57,7 +56,7 @@ class UserTemplateController extends Controller
             abort(403);
         endif;
 
-        return $userTemplate;
+        return view('user.preview-template')->with('template', $userTemplate);
     }
 
     /**

@@ -37,7 +37,8 @@
     <script type="text/javascript">
         var editor = grapesjs.init({
             container: '#gjs',
-            plugins: ['gjs-preset-webpage']
+            plugins: ['gjs-preset-webpage'],
+            storageManager: false,
         });
         editor.setComponents(document.getElementById('old_template').innerHTML);
 

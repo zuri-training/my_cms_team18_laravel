@@ -1,0 +1,1 @@
+<a class="dropdown-item" href="{{ route('user.template.index') }}">My Templates</a>

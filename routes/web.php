@@ -28,9 +28,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/template', [OriginalTemplateController::class, 'publicIndex'])->name('public.template.index');
 Route::get('/template/{originalTemplate}/preview', [OriginalTemplateController::class, 'show'])->name('public.template.preview');
 Route::get('/template/{originalTemplate}/iframe', [OriginalTemplateController::class, 'iframe'])->name('public.template.iframe');
-Route::get('/template/{originalTemplate}/modify', [OriginalTemplateController::class, 'modify'])->name('public.template.modify');
 
-Route::group(['middleware'=>'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     // Admin routes //
     //
     // view templates
@@ -48,19 +47,22 @@ Route::group(['middleware'=>'auth'], function () {
     Route::get('/admin/template/{originalTemplate}/iframe', [OriginalTemplateController::class, 'iframe'])->name('original.template.iframe');
     // delete template
     Route::delete('/admin/template/{originalTemplate}/destroy', [OriginalTemplateController::class, 'destroy'])->name('original.template.destroy');
-    
+
     // view staffs
     // add staff
     // edit staff
     // delete staff
-    
+
     // User routes //
     //
     // my-templates
-    Route::get('/my-templates', [UserTemplateController::class, 'index'])->name('user.templates');
+    Route::get('/my-templates', [UserTemplateController::class, 'index'])->name('user.template.index');
+    // modify template
+    Route::get('/template/{originalTemplate}/modify', [OriginalTemplateController::class, 'modify'])->name('public.template.modify');
     // save template
     Route::post('/template/store', [UserTemplateController::class, 'store'])->name('user.template.store');
-    // my-websites
+    // preview saved template
+    Route::get('/my/template/{userTemplate}/preview', [UserTemplateController::class, 'show'])->name('user.template.preview');
 
     // Staff routes //
     //
