@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('landing-page/landingPage.css')}}">
     <title>Forge - Effortlessly create</title>
 </head>
@@ -604,17 +605,17 @@
                     </span>
                     <ul class="footer--section__items">
                         <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
+                            <a href="{{route('faq')}}" target="_blank" class="footer--section__link">
                                 FAQs
                             </a>
                         </li>
                         <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
+                            <a href="#" class="footer--section__link">
                                 Privacy Policy
                             </a>
                         </li>
                         <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
+                            <a href="#" class="footer--section__link">
                                 Terms of Use
                             </a>
                         </li>
@@ -623,7 +624,7 @@
 
                 <div class="footer--section__brand">
                     <div class="footer--logo">
-                        <a href="" class="footer--section__brand--logo"></a>
+                        <a href="#" class="footer--section__brand--logo"></a>
                     </div>
                     <div class="footer--section__para">
                         <span>

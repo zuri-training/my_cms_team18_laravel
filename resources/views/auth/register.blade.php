@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forge - Sign Up</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('signup-signin/style.css') }}">
 </head>
 
@@ -25,13 +25,13 @@
 
 
 
-        <form method="post" action="#" autocomplete="off" class="section">
+        <form method="post" action="{{route('register')}}" autocomplete="off" class="section">
             @csrf
-            <h1>Sign Up</h1>
+            <h1 style="margin: auto">Sign Up</h1>
 
             <div class="form">
-                
                 @include('includes.errors')
+                @include('includes.status')
 
                 <label for="name"><b>Name</b></label>
                 <input type="text" name="name" id="name" value="{{old('name')}}" required><br>

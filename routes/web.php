@@ -17,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome')->name('landing-page');
+Route::view('/frequently-asked-questions', 'faq')->name('faq');
 
 Auth::routes();
 
