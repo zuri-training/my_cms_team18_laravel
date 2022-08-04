@@ -29,19 +29,19 @@ class UserTemplateController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'template' => ['required', 'exists:original_templates,id'],
-            'html' => 'required',
-            'css' => 'required'
+            'name' => 'required', 'min:3', 'unique:user_templates',
+            'content_html' => 'required',
+            'content_css' => 'required'
         ]);
 
         $user_template = UserTemplate::create([
-            'name' => OriginalTemplate::findOrFail($validatedData['template'])->name,
-            'content' => '<style>'.$validatedData['css'].'</style><br/>'.$validatedData['html'],
-            'original_template' => $validatedData['template'],
+            'name' => $validatedData['name'],
+            'content_html' => $validatedData['content_html'],
+            'content_css' => $validatedData['content_css'],
             'user' => Auth::id(),
         ]);
 
-        return redirect()->back()->withStatus('Templated has been saved to your dashboard');
+        return redirect()->back()->withInput()->withStatus('Templated has been saved to your dashboard');
     }
 
     /**

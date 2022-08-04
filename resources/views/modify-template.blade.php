@@ -17,7 +17,7 @@
 
 @section('content')
     <div class="d-flex justify-content-around align-items-center">
-        <h1>{{ $template->name }}</h1>
+        <p>Template Name: <input type="text" id="template-name" value="{{old('name', $template->name)}}"></p>
         @include('includes.status')
         @include('includes.errors')
         <div>
@@ -25,13 +25,14 @@
         </div>
         <form id="template-form" method="post" action="{{route('user.template.store')}}">
             @csrf
-            <input type="hidden" name="template" value="{{$template->id}}">
-            <input type="hidden" name="html" value="" id="form-html">
-            <input type="hidden" name="css" value="" id="form-css">
+            <input type="hidden" name="name" value="{{old('name', $template->name)}}" id="form-name">
+            <input type="hidden" name="content_html" value="{{old('content_html', $template->content_html)}}" id="form-html">
+            <input type="hidden" name="content_css" value="{{old('content_css', $template->content_css)}}" id="form-css">
         </form>
 
     </div>
-    <div id="old_template">{!! $template->content !!}</div>
+    
+    {{-- <div id="old_template">{!! $template->content !!}</div> --}}
     <div name="template" id="gjs"></div>
 
     <script type="text/javascript">
@@ -40,13 +41,17 @@
             plugins: ['gjs-preset-webpage'],
             storageManager: false,
         });
-        editor.setComponents(document.getElementById('old_template').innerHTML);
+        editor.setComponents(document.getElementById('form-html').value);
+        editor.setStyle(document.getElementById('form-css').value);
 
         document.getElementById('save-template').addEventListener("click", function (event) {
             const html = editor.getHtml();
             const css = editor.getCss();
+            const template_name = document.getElementById('template-name').value;
+
             document.getElementById('form-html').value = html;
             document.getElementById('form-css').value = css;
+            document.getElementById('form-name').value = template_name;
             document.getElementById('template-form').submit();
         });
 

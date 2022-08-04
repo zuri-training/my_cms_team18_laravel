@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
     // save template
     Route::post('/template/store', [UserTemplateController::class, 'store'])->name('user.template.store');
     // preview saved template
-    Route::get('/my/template/{userTemplate}/preview', [UserTemplateController::class, 'show'])->name('user.template.preview');
+    Route::get('/user/template/{userTemplate}/preview', [UserTemplateController::class, 'show'])->name('user.template.preview');
 
     // Staff routes //
     //

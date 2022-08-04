@@ -13,8 +13,8 @@ class UserTemplate extends Model
 
     protected $fillable = [
         'name',
-        'content',
-        'original_template',
+        'content_html',
+        'content_css',
         'user',
         'status',
     ];

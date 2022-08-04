@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('user_templates', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->mediumText('content');
-            $table->foreignId('original_template')->references('id')->on('original_templates')->cascadeOnUpdate();
+            $table->mediumText('content_html');
+            $table->mediumText('content_css');
+            // $table->foreignId('original_template')->references('id')->on('original_templates')->cascadeOnUpdate();
             $table->foreignId('user')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->tinyInteger('status', false)->default(0); // published-1, hidden-0
             $table->timestamps();
