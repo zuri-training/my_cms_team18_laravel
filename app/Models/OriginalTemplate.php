@@ -13,7 +13,8 @@ class OriginalTemplate extends Model
 
     protected $fillable = [
         'name',
-        'content',
+        'content_html',
+        'content_css',
         'preview_image',
         'author',
     ];

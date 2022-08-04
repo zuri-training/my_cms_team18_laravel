@@ -70,14 +70,18 @@ class OriginalTemplateController extends Controller
             abort(403);
         endif;
 
+        // dd($request->input());
+
         $validatedData = $request->validate([
-            'name' => 'required', 'min:23', 'unique:original_templates',
-            'content' => 'required',
+            'name' => 'required', 'min:3', 'unique:original_templates',
+            'content_html' => 'required',
+            'content_css' => 'required'
         ]);
 
         $originalTemplate = OriginalTemplate::create([
             'name' => $validatedData['name'],
-            'content' => $validatedData['content'],
+            'content_html' => $validatedData['content_html'],
+            'content_css' => $validatedData['content_css'],
             'author' => Auth::id()
         ]);
 
@@ -103,7 +107,7 @@ class OriginalTemplateController extends Controller
     }
     public function iframe(OriginalTemplate $originalTemplate)
     {
-        return $originalTemplate->content;
+        return '<style>'.$originalTemplate->content_css.'</style>'.$originalTemplate->content_html;
     }
 
     /**
@@ -146,14 +150,15 @@ class OriginalTemplateController extends Controller
         endif;
 
         $validatedData = $request->validate([
-            'name' => 'required', 'min:23',
-            'content' => 'required',
+            'name' => 'required', 'min:3',
+            'content_html' => 'required',
+            'content_css' => 'required',
         ]);
 
         $originalTemplate->update([
             'name' => $validatedData['name'],
-            'content' => $validatedData['content'],
-            'author' => Auth::id()
+            'content_html' => $validatedData['content_html'],
+            'content_css' => $validatedData['content_css']
         ]);
 
         // preview image

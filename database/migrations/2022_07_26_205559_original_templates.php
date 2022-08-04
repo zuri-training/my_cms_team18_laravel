@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('original_templates', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->mediumText('content');
+            $table->mediumText('content_html');
+            $table->mediumText('content_css');
             $table->string('preview_image')->nullable();
             $table->foreignId('author')->references('id')->on('users')->cascadeOnUpdate();
             $table->timestamps();

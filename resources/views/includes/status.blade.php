@@ -9,6 +9,6 @@
             padding: 10px;
             margin-bottom: 5px;
             color: rgb(0, 126, 8);
-        ">hello</span>
+        ">{{session('status')}}</span>
     </div>
 @endif

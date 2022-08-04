@@ -41,10 +41,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('public.template.index')}}">Browse Templates</a>
-                        </li>
+                        @if(!(auth()->user() && auth()->user()->type == 1))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('public.template.index')}}">Browse Templates</a>
+                            </li>
+                        @endif
 
                         <!-- Authentication Links -->
                         @guest
