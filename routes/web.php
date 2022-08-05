@@ -3,6 +3,7 @@
 use App\Http\Controllers\OriginalTemplateController;
 use App\Http\Controllers\UserTemplateController;
 use App\Models\OriginalTemplate;
+use App\Models\UserTemplate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -55,13 +56,20 @@ Route::group(['middleware' => 'auth'], function () {
     // User routes //
     //
     // my-templates
-    Route::get('/my-templates', [UserTemplateController::class, 'index'])->name('user.template.index');
+    Route::get('/user/templates', [UserTemplateController::class, 'index'])->name('user.template.index');
     // modify template
     Route::get('/template/{originalTemplate}/modify', [OriginalTemplateController::class, 'modify'])->name('public.template.modify');
     // save template
-    Route::post('/template/store', [UserTemplateController::class, 'store'])->name('user.template.store');
+    Route::post('/user/template/store', [UserTemplateController::class, 'store'])->name('user.template.store');
+    // edit template
+    Route::get('/user/template/{userTemplate}/edit', [UserTemplateController::class, 'edit'])->name('user.template.edit');
+    // update template
+    Route::put('/user/template/{userTemplate}/update', [UserTemplateController::class, 'update'])->name('user.template.update');
     // preview saved template
     Route::get('/user/template/{userTemplate}/preview', [UserTemplateController::class, 'show'])->name('user.template.preview');
+    Route::get('/user/template/{userTemplate}/iframe', [UserTemplateController::class, 'iframe'])->name('user.template.iframe');
+    // delete template
+    Route::delete('/user/template/{userTemplate}/delete', [UserTemplateController::class, 'destroy'])->name('user.template.destroy');
 
     // Staff routes //
     //

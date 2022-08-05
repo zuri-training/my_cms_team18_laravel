@@ -53,10 +53,14 @@ class UserTemplateController extends Controller
     public function show(UserTemplate $userTemplate)
     {
         if($userTemplate->user !== Auth::id()):
-            abort(403);
+            abort(401);
         endif;
 
         return view('user.preview-template')->with('template', $userTemplate);
+    }
+    public function iframe(UserTemplate $userTemplate)
+    {
+        return '<style>'.$userTemplate->content_css.'</style>'.$userTemplate->content_html;
     }
 
     /**
@@ -68,10 +72,10 @@ class UserTemplateController extends Controller
     public function edit(UserTemplate $userTemplate)
     {
         if($userTemplate->user !== Auth::id()):
-            abort(403);
+            abort(401);
         endif;
 
-        return $userTemplate;
+        return view('user.edit-template')->with('template', $userTemplate);
     }
 
     /**
@@ -84,10 +88,29 @@ class UserTemplateController extends Controller
     public function update(Request $request, UserTemplate $userTemplate)
     {
         if($userTemplate->user !== Auth::id()):
-            abort(403);
+            abort(401);
         endif;
 
-        die('update in progress');
+        $validatedData = $request->validate([
+            'name' => 'required', 'min:3',
+            'content_html' => 'required',
+            'content_css' => 'required',
+        ]);
+
+        $userTemplate->update([
+            'name' => $validatedData['name'],
+            'content_html' => $validatedData['content_html'],
+            'content_css' => $validatedData['content_css']
+        ]);
+
+        // preview image
+        // 
+        // if($request->hasFile('preview_image')):
+        //     $originalTemplate->preview_image = 'hello';
+        //     $originalTemplate->update();
+        // endif;
+
+        return redirect()->back()->withStatus('Template Updated Successfully');
     }
 
     /**
@@ -99,9 +122,11 @@ class UserTemplateController extends Controller
     public function destroy(UserTemplate $userTemplate)
     {
         if($userTemplate->user !== Auth::id()):
-            abort(403);
+            abort(401);
         endif;
 
         $userTemplate->delete();
+
+        return redirect()->route('user.template.index')->withStatus('Template Deleted Successfully');
     }
 }

@@ -24,11 +24,11 @@
                                         <td>{{$template->id}}</td>
                                         <td>{{$template->name}}</td>
                                         <td>
-                                            <form method="post" action="{{route('original.template.destroy', $template->id)}}">
+                                            <form method="post" action="{{route('user.template.destroy', $template->id)}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <a target="_blank" href="{{route('user.template.preview', $template->id)}}" class="btn btn-success">Preview</a>
-                                                <a class="btn btn-primary" href="{{route('original.template.edit', $template->id)}}">Edit</a>
+                                                <a class="btn btn-primary" href="{{route('user.template.edit', $template->id)}}">Edit</a>
                                                 <button class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>

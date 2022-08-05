@@ -69,7 +69,7 @@
                 </span>
             </div>
             <div class="intro-button">
-                <a href="" class="navbar__brand--link brand--intro-button">
+                <a href="{{route('public.template.index')}}" class="navbar__brand--link brand--intro-button">
                     Get Started
                 </a>
             </div>
@@ -154,7 +154,7 @@
             <div class="template-edition__intro-image">
                 <div class="template-edition__image"></div>
                 <div class="intro-button">
-                    <a href="" class="navbar__brand--link template-edition__button">
+                    <a href="{{route('public.template.index')}}" class="navbar__brand--link template-edition__button">
                         Get Started
                     </a>
                 </div>
@@ -228,7 +228,7 @@
                 </div>
             </div>
             <div class="customize-button">
-                <a href="" class="navbar__brand--link template-customization__bottom--button">
+                <a href="{{route('public.template.index')}}" class="navbar__brand--link template-customization__bottom--button">
                     View More Website Templates
                 </a>
             </div>
@@ -239,7 +239,7 @@
             <div class="user-interface__intro--image">
                 <div class="user-interface__image"></div>
                 <div class="intro-button">
-                    <a href="" class="navbar__brand--link template-edition__button">
+                    <a href="{{route('public.template.index')}}" class="navbar__brand--link template-edition__button">
                         Get Started
                     </a>
                 </div>
@@ -345,7 +345,7 @@
             <div class="template-edition__intro-image">
                 <div class="advertisement__image"></div>
                 <div class="intro-button">
-                    <a href="" class="navbar__brand--link template-edition__button">
+                    <a href="{{route('public.template.index')}}" class="navbar__brand--link template-edition__button">
                         Get Started
                     </a>
                 </div>
@@ -404,7 +404,7 @@
                 </div>
             </div>
             <div class="features-button">
-                <a href="" class="navbar__brand--link template-customization__bottom--button">
+                <a href="{{route('register')}}" class="navbar__brand--link template-customization__bottom--button">
                     Access these features now
                 </a>
             </div>
@@ -426,7 +426,7 @@
                         </span>
                     </div>
                     <div class="creativity-button">
-                        <a href="" class="navbar__brand--link template-edition__button">
+                        <a href="{{route('register')}}" class="navbar__brand--link template-edition__button">
                             Get Access Now
                         </a>
                     </div>
@@ -543,7 +543,7 @@
             </div>
 
             <div class="features-button">
-                <a href="" class="navbar__brand--link template-customization__bottom--button">
+                <a href="#" class="navbar__brand--link template-customization__bottom--button">
                     View more testimonials 
                 </a>
             </div>
@@ -559,17 +559,17 @@
                     </span>
                     <ul class="footer--section__items">
                         <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
+                            <a href="{{route('public.template.index')}}" class="footer--section__link">
                                 Templates
                             </a>
                         </li>
                         <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
+                            <a href="#" class="footer--section__link">
                                 Websites
                             </a>
                         </li>
                         <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
+                            <a href="#" class="footer--section__link">
                                 Features
                             </a>
                         </li>
@@ -582,17 +582,17 @@
                     </span>
                     <ul class="footer--section__items">
                         <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
+                            <a href="#" class="footer--section__link">
                                 Website Builder
                             </a>
                         </li>
                         <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
+                            <a href="#" class="footer--section__link">
                                 Activity
                             </a>
                         </li>
                         <li class="footer--section__list">
-                            <a href="" class="footer--section__link">
+                            <a href="#" class="footer--section__link">
                                 Recent Posts
                             </a>
                         </li>
@@ -659,16 +659,16 @@
                     </div>
                     <div class="footer--section__icons">
                         <div class="footer--section__icons">
-                            <a href="" class="footer--section__icons1--link"></a>
+                            <a href="#" class="footer--section__icons1--link"></a>
                         </div>
                         <div class="footer--section__icons">
-                            <a href="" class="footer--section__icons2--link"></a>
+                            <a href="#" class="footer--section__icons2--link"></a>
                         </div>
                         <div class="footer--section__icons">
-                            <a href="" class="footer--section__icons3--link"></a>
+                            <a href="#" class="footer--section__icons3--link"></a>
                         </div>
                         <div class="footer--section__icons">
-                            <a href="" class="footer--section__icons4--link"></a>
+                            <a href="#" class="footer--section__icons4--link"></a>
                         </div>
                     </div>
                 </div>

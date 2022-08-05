@@ -16,7 +16,7 @@ class OriginalTemplateController extends Controller
     // public function __construct()
     // {
     //     if(Auth::user()->type === 3):
-    //         abort(403);
+    //         abort(401);
     //     endif;
     // }
 
@@ -28,7 +28,7 @@ class OriginalTemplateController extends Controller
     public function index()
     {
         if(Auth::user()->type === 3):
-            abort(403);
+            abort(401);
         endif;
 
         return view('admin.all-template')->with('templates', OriginalTemplate::latest()->get());
@@ -52,7 +52,7 @@ class OriginalTemplateController extends Controller
     public function create()
     {
         if(Auth::user()->type === 3):
-            abort(403);
+            abort(401);
         endif;
 
         return view('admin.create-template');
@@ -67,7 +67,7 @@ class OriginalTemplateController extends Controller
     public function store(Request $request)
     {
         if(Auth::user()->type === 3):
-            abort(403);
+            abort(401);
         endif;
 
         // dd($request->input());
@@ -119,7 +119,7 @@ class OriginalTemplateController extends Controller
     public function edit(OriginalTemplate $originalTemplate)
     {
         if(Auth::user()->type === 3):
-            abort(403);
+            abort(401);
         endif;
         
         return view('admin.edit-template')->with('template', $originalTemplate);
@@ -146,7 +146,7 @@ class OriginalTemplateController extends Controller
     public function update(Request $request, OriginalTemplate $originalTemplate)
     {
         if(Auth::user()->type === 3):
-            abort(403);
+            abort(401);
         endif;
 
         $validatedData = $request->validate([
@@ -180,7 +180,7 @@ class OriginalTemplateController extends Controller
     public function destroy(OriginalTemplate $originalTemplate)
     {
         if(Auth::user()->type === 3):
-            abort(403);
+            abort(401);
         endif;
         
         $originalTemplate->delete();
