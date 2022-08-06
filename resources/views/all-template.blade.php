@@ -10,7 +10,7 @@
                 <div class="container py-5">
                     <div class="row row-cols-1 row-cols-lg-3">
                         @forelse($templates as $template)
-                            <div class="col pb-3">
+                            <div class="col pb-3 mb-5">
                                 <div class="d-flex flex-column align-items-start justify-content-center">
                                     <div class="mb-2"><img
                                             src="https://dummyimage.com/280x170/797ff7/f7f7f7.png&text=Template+Preview" />
