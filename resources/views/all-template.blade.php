@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h1>
-                    <center class="fw-bold">{{ __('Explore Templates') }}</center>
+                    <center class="fw-bold">{{ __('Pick a Template') }}</center>
                 </h1>
                 <div class="container py-5">
                     <div class="row row-cols-1 row-cols-lg-3">
