@@ -37,6 +37,14 @@
             container: '#gjs',
             plugins: ['gjs-preset-webpage'],
             storageManager: false,
+            canvas: {
+                styles: [
+                    'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'
+                ],
+                scripts: [
+                    'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'
+                ],
+            }
         });
 
         editor.setComponents(document.getElementById('form-html').value);
