@@ -2,42 +2,40 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-start">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">{{ __('View Templates') }}</div>
-
-                    <div class="card-body">
-                        @include('includes.status')
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>S/N</th>
-                                    <th>Name</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($templates as $template)
-                                    <tr>
-                                        <td>{{$template->id}}</td>
-                                        <td>{{$template->name}}</td>
-                                        <td>
-                                            <form method="post" action="{{route('original.template.destroy', $template->id)}}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <a target="_blank" href="{{route('original.template.preview', $template->id)}}" class="btn btn-success">Preview</a>
-                                                <a class="btn btn-primary" href="{{route('original.template.edit', $template->id)}}">Edit</a>
-                                                <button class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr><td colspan="5"><center>No templates added yet!!!</center></td></tr>
-                                @endforelse
-                            </tbody>
-                        </table>
+                <h1>
+                    <center class="fw-bold">{{ __('Available Templates') }}</center>
+                </h1>
+                <div class="container py-5">
+                    <div class="row row-cols-1 row-cols-lg-3">
+                        @forelse($templates as $template)
+                            <div class="col pb-3 mb-5">
+                                <div class="d-flex flex-column align-items-start justify-content-center">
+                                    <div class="mb-2"><img
+                                            src="https://dummyimage.com/280x170/797ff7/f7f7f7.png&text=Template+Preview" />
+                                    </div>
+                                    <div class="mb-2">
+                                        <strong class="fs-4">{{ $template->name }}</strong>
+                                    </div>
+                                    <div>
+                                        <form method="post"
+                                            action="{{ route('original.template.destroy', $template->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a target="_blank"
+                                                href="{{ route('original.template.preview', $template->id) }}"
+                                                class="btn btn-sm btn-success">Preview</a>
+                                            <a class="btn btn-sm btn-primary"
+                                                href="{{ route('original.template.edit', $template->id) }}">Edit</a>
+                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col">No templates added yet!!!</div>
+                        @endforelse
                     </div>
                 </div>
             </div>

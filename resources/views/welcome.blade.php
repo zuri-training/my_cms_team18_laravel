@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('landing-page/landingPage.css')}}">
+    <link rel="stylesheet" href="{{ asset('landing-page/landingPage.css') }}">
     <title>Forge - Effortlessly create</title>
 </head>
+
 <body>
     <main class="container">
         <section class="header-section">
@@ -19,26 +21,26 @@
                     <ul class="navbar__brand--item">
                         <li class="navbar__brand--list">
                             <a href="#" class="navbar__brand--link">Create
-                                <img src="{{asset('landing-page/Vector.png')}}" alt="drop-down" 
-                            style="padding: 2px 2px;">
+                                <img src="{{ asset('landing-page/Vector.png') }}" alt="drop-down"
+                                    style="padding: 2px 2px;">
                             </a>
                         </li>
                         <li class="navbar__brand--list">
-                            <a href="#" class="navbar__brand--link">Build 
-                                <img src="{{asset('landing-page/Vector.png')}}" alt="drop-down" 
-                            style="padding: 2px 2px;">
+                            <a href="#" class="navbar__brand--link">Build
+                                <img src="{{ asset('landing-page/Vector.png') }}" alt="drop-down"
+                                    style="padding: 2px 2px;">
                             </a>
                         </li>
                         <li class="navbar__brand--list">
-                            <a href="#" class="navbar__brand--link">Develop 
-                                <img src="{{asset('landing-page/Vector.png')}}" alt="drop-down" 
-                            style="padding: 2px 2px;">
+                            <a href="#" class="navbar__brand--link">Develop
+                                <img src="{{ asset('landing-page/Vector.png') }}" alt="drop-down"
+                                    style="padding: 2px 2px;">
                             </a>
                         </li>
                         <li class="navbar__brand--list">
-                            <a href="#" class="navbar__brand--link">Resources 
-                                <img src="{{asset('landing-page/Vector.png')}}" alt="drop-down" 
-                            style="padding: 2px 2px;">
+                            <a href="#" class="navbar__brand--link">Resources
+                                <img src="{{ asset('landing-page/Vector.png') }}" alt="drop-down"
+                                    style="padding: 2px 2px;">
                             </a>
                         </li>
                     </ul>
@@ -52,9 +54,21 @@
                             <a href="" class="navbar__brand--link">Support</a>
                         </li>
                         <li class="navbar__brand--list">
-                            <a href="{{route('login')}}" class="navbar__brand--link brand--button">
-                                Sign In
-                            </a>
+                            @guest
+                                <a href="{{ route('login') }}" class="navbar__brand--link brand--button">
+                                    Sign In
+                                </a>
+                            @else
+                                <a class="navbar__brand--link brand--button" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            @endguest
                         </li>
                     </ul>
                 </div>
@@ -69,7 +83,7 @@
                 </span>
             </div>
             <div class="intro-button">
-                <a href="{{route('public.template.index')}}" class="navbar__brand--link brand--intro-button">
+                <a href="{{ route('public.template.index') }}" class="navbar__brand--link brand--intro-button">
                     Get Started
                 </a>
             </div>
@@ -154,7 +168,8 @@
             <div class="template-edition__intro-image">
                 <div class="template-edition__image"></div>
                 <div class="intro-button">
-                    <a href="{{route('public.template.index')}}" class="navbar__brand--link template-edition__button">
+                    <a href="{{ route('public.template.index') }}"
+                        class="navbar__brand--link template-edition__button">
                         Get Started
                     </a>
                 </div>
@@ -228,7 +243,8 @@
                 </div>
             </div>
             <div class="customize-button">
-                <a href="{{route('public.template.index')}}" class="navbar__brand--link template-customization__bottom--button">
+                <a href="{{ route('public.template.index') }}"
+                    class="navbar__brand--link template-customization__bottom--button">
                     View More Website Templates
                 </a>
             </div>
@@ -239,7 +255,8 @@
             <div class="user-interface__intro--image">
                 <div class="user-interface__image"></div>
                 <div class="intro-button">
-                    <a href="{{route('public.template.index')}}" class="navbar__brand--link template-edition__button">
+                    <a href="{{ route('public.template.index') }}"
+                        class="navbar__brand--link template-edition__button">
                         Get Started
                     </a>
                 </div>
@@ -251,8 +268,8 @@
                 <div class="user-interface__intro-para">
                     <span>
                         Start from scratch or choose from 500 designer-made
-                        templates that you can fully customize to your taste 
-                        giving you the best experience ever. 
+                        templates that you can fully customize to your taste
+                        giving you the best experience ever.
                     </span>
                 </div>
             </div>
@@ -262,7 +279,7 @@
         <section class="about--template">
             <div class="about--template__para">
                 <span>
-                    Make your own website and get build-in tools to grow 
+                    Make your own website and get build-in tools to grow
                     your business online.
                 </span>
             </div>
@@ -323,7 +340,7 @@
                         </div>
                     </div>
                 </div>
-            </div>    
+            </div>
         </section>
 
 
@@ -345,7 +362,8 @@
             <div class="template-edition__intro-image">
                 <div class="advertisement__image"></div>
                 <div class="intro-button">
-                    <a href="{{route('public.template.index')}}" class="navbar__brand--link template-edition__button">
+                    <a href="{{ route('public.template.index') }}"
+                        class="navbar__brand--link template-edition__button">
                         Get Started
                     </a>
                 </div>
@@ -382,7 +400,7 @@
                     </div>
                     <div class="features-section__para">
                         <span>
-                            Start your own blog, add an online store and 
+                            Start your own blog, add an online store and
                             accept booking online. You can always add more
                             features as you grow.
                         </span>
@@ -404,7 +422,7 @@
                 </div>
             </div>
             <div class="features-button">
-                <a href="{{route('register')}}" class="navbar__brand--link template-customization__bottom--button">
+                <a href="{{ route('register') }}" class="navbar__brand--link template-customization__bottom--button">
                     Access these features now
                 </a>
             </div>
@@ -421,12 +439,12 @@
                         <span>
                             Follow the latest trend, to improve your skills
                             with different ideas and get inspired by case studies
-                            on the <b class="advertisement__text">Forge</b> Blog and 
+                            on the <b class="advertisement__text">Forge</b> Blog and
                             News Letters.
                         </span>
                     </div>
                     <div class="creativity-button">
-                        <a href="{{route('register')}}" class="navbar__brand--link template-edition__button">
+                        <a href="{{ route('register') }}" class="navbar__brand--link template-edition__button">
                             Get Access Now
                         </a>
                     </div>
@@ -544,7 +562,7 @@
 
             <div class="features-button">
                 <a href="#" class="navbar__brand--link template-customization__bottom--button">
-                    View more testimonials 
+                    View more testimonials
                 </a>
             </div>
         </section>
@@ -559,7 +577,7 @@
                     </span>
                     <ul class="footer--section__items">
                         <li class="footer--section__list">
-                            <a href="{{route('public.template.index')}}" class="footer--section__link">
+                            <a href="{{ route('public.template.index') }}" class="footer--section__link">
                                 Templates
                             </a>
                         </li>
@@ -605,7 +623,7 @@
                     </span>
                     <ul class="footer--section__items">
                         <li class="footer--section__list">
-                            <a href="{{route('faq')}}" target="_blank" class="footer--section__link">
+                            <a href="{{ route('faq') }}" target="_blank" class="footer--section__link">
                                 FAQs
                             </a>
                         </li>
@@ -628,8 +646,8 @@
                     </div>
                     <div class="footer--section__para">
                         <span>
-                            Forge gives users access to create, personalized, 
-                            edit the functionally and usability of any website 
+                            Forge gives users access to create, personalized,
+                            edit the functionally and usability of any website
                             of their choice through our given templates.
                         </span>
                     </div>
@@ -644,11 +662,10 @@
                         </span>
                     </div>
                     <div class="footer--section__subscribe--input">
-                        <input type="email" class="footer--section__input"
-                        name="email" placeholder="Enter your email address">
-                        
-                        <input type="submit" class="footer--section__button"
-                        value="Subscribe"/>
+                        <input type="email" class="footer--section__input" name="email"
+                            placeholder="Enter your email address">
+
+                        <input type="submit" class="footer--section__button" value="Subscribe" />
                     </div>
                 </div>
                 <div class="footer--section__connect">
@@ -675,7 +692,7 @@
             </div>
         </section>
 
-        
+
         <section class="rights">
             <div class="right-reserved">
                 <span>
@@ -685,4 +702,5 @@
         </section>
     </main>
 </body>
+
 </html>

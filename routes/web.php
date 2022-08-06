@@ -24,6 +24,12 @@ Route::view('/frequently-asked-questions', 'faq')->name('faq');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', function () {
+    if(Auth::user()->type == 1):
+        return redirect()->route('original.template.index');
+    endif;
+    return redirect()->route('user.template.index');
+})->name('home');
 
 Route::get('/template', [OriginalTemplateController::class, 'publicIndex'])->name('public.template.index');
 Route::get('/template/{originalTemplate}/preview', [OriginalTemplateController::class, 'show'])->name('public.template.preview');
